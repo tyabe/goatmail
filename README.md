@@ -88,6 +88,8 @@ map '/inbox' do
 end
 ```
 
+See: [Sample Applications](https://github.com/tyabe/goatmail_sample)
+
 ## Contributing
 
 1. Fork it ( https://github.com/tyabe/goatmail/fork )
