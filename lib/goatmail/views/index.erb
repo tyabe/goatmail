@@ -1,7 +1,7 @@
 <div class='navbar navbar-fixed-top header'>
   <div class='container'>
     <div class='navbar-header'>
-      <a class='navbar-brand' href="<%= root_path %>">Letter Opener</a>
+      <a class='navbar-brand' href="<%= root_path %>">Goatmail</a>
     </div>
   </div>
 </div>
@@ -41,7 +41,7 @@
         <label for="message_<%= message.id %>"></label>
         <a href="<%= root_path + message.id %>" target='mail'>
           <dl>
-            <dt><%=h message.info[:subject] || message.id %></dt>
+            <dt><%=h message.meta[:subject] || message.id %></dt>
             <dd class="text-right"><small><%= message.sent_at %></small></dd>
           </dl>
         </a>

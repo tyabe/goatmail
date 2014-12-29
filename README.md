@@ -1,21 +1,21 @@
-# LetterOpener::Web
+# Goatmail
 
-[![Gem Version](https://badge.fury.io/rb/letter_opener-web.svg)](http://badge.fury.io/rb/letter_opener-web)
-[![Build Status](https://travis-ci.org/tyabe/letter_opener-web.svg)](https://travis-ci.org/tyabe/letter_opener-web)
-[![Coverage Status](https://coveralls.io/repos/tyabe/letter_opener-web/badge.png)](https://coveralls.io/r/tyabe/letter_opener-web)
-[![Code Climate](https://codeclimate.com/github/tyabe/letter_opener-web.png)](https://codeclimate.com/github/tyabe/letter_opener-web)
-[![Dependency Status](https://gemnasium.com/tyabe/letter_opener-web.svg)](https://gemnasium.com/tyabe/letter_opener-web)
+[![Gem Version](https://badge.fury.io/rb/goatmail.svg)](http://badge.fury.io/rb/goatmail)
+[![Build Status](https://travis-ci.org/tyabe/goatmail.svg)](https://travis-ci.org/tyabe/goatmail)
+[![Coverage Status](https://coveralls.io/repos/tyabe/goatmail/badge.png)](https://coveralls.io/r/tyabe/goatmail)
+[![Code Climate](https://codeclimate.com/github/tyabe/goatmail.png)](https://codeclimate.com/github/tyabe/goatmail)
+[![Dependency Status](https://gemnasium.com/tyabe/goatmail.svg)](https://gemnasium.com/tyabe/goatmail)
 
 A Sinatra-based frontend to the [letter_opener](https://github.com/ryanb/letter_opener).  
 This provides almost the same feature as the [letter_opener_web](https://github.com/fgrehm/letter_opener_web).  
 letter_opener_web is Rails based application. It's very useful.
-But, I wanted a more simple.
+But, I wanted a more simple application.
 
 ## Installation
 
 First add the gem to your development environment and run the bundle command to install it.
 
-    gem 'letter_opener-web', :group => :development
+    gem 'goatmail', :group => :development
 
 ## Rails Setup
 
@@ -23,8 +23,8 @@ Then set the delivery method in `config/environments/development.rb`
 
 ```ruby
   # If you will specify a message file location.
-  # LetterOpener.location = Rails.root.join('tmp/letter_opener')
-  config.action_mailer.delivery_method = :letter_opener
+  # Goatmail.location = Rails.root.join('tmp/goatmail')
+  config.action_mailer.delivery_method = :goatmail
 ```
 
 And mount app, add to your routes.rb
@@ -32,7 +32,7 @@ And mount app, add to your routes.rb
 ```ruby
 Sample::Application.routes.draw do
   if Rails.env.development?
-    mount LetterOpener::Web::Engine, at: "/inbox"
+    mount Goatmail::App, at: "/inbox"
   end
 end
 ```
@@ -45,13 +45,13 @@ Then set the delivery method and mount app in `config/apps.rb`
 Padrino.configure_apps do
   if Padrino.env == :development
     # If you will specify a message file location.
-    # LetterOpener.location = Padrino.root('tmp/letter_opener')
-    set :delivery_method, LetterOpener::DeliveryMethod => {}
+    # Goatmail.location = Padrino.root('tmp/goatmail')
+    set :delivery_method, Goatmail::DeliveryMethod => {}
   end
 end
 
 if Padrino.env == :development
-  Padrino.mount('LetterOpener::Web::App').to('/inbox')
+  Padrino.mount('Goatmail::App').to('/inbox')
 end
 Padrino.mount('SampleProject::App', :app_file => Padrino.root('app/app.rb')).to('/')
 ```
@@ -65,9 +65,9 @@ module Sample
     configure do
       set :root, File.dirname(__FILE__)
       if ENV['RACK_ENV'] == 'development'
-        LetterOpener.location = File.join("#{root}/tmp")
+        Goatmail.location = File.join("#{root}/tmp/goatmail")
         Mail.defaults do
-          delivery_method LetterOpener::DeliveryMethod
+          delivery_method Goatmail::DeliveryMethod
         end
       end
     end
@@ -82,13 +82,13 @@ map '/' do
 end
 
 map '/inbox' do
-  run LetterOpener::Web::App.new
+  run Goatmail::App.new
 end
 ```
 
 ## Contributing
 
-1. Fork it ( https://github.com/tyabe/letter_opener-web/fork )
+1. Fork it ( https://github.com/tyabe/goatmail/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

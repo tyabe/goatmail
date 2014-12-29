@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/helper')
 
-describe LetterOpener::Web::App do
+describe Goatmail::App do
 
   before do
     Mail.new {
