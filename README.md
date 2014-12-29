@@ -11,6 +11,8 @@ This provides almost the same feature as the [letter_opener_web](https://github.
 letter_opener_web is Rails based application. It's very useful.
 But, I wanted a more simple application.
 
+Try it out in [https://goatmail.herokuapp.com/](https://goatmail.herokuapp.com/).
+
 ## Installation
 
 First add the gem to your development environment and run the bundle command to install it.
