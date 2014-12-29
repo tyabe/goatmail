@@ -2,8 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/goatmail.svg)](http://badge.fury.io/rb/goatmail)
 [![Build Status](https://travis-ci.org/tyabe/goatmail.svg)](https://travis-ci.org/tyabe/goatmail)
-[![Coverage Status](https://coveralls.io/repos/tyabe/goatmail/badge.png)](https://coveralls.io/r/tyabe/goatmail)
-[![Code Climate](https://codeclimate.com/github/tyabe/goatmail.png)](https://codeclimate.com/github/tyabe/goatmail)
+[![Coverage Status](https://img.shields.io/coveralls/tyabe/goatmail.svg)](https://coveralls.io/r/tyabe/goatmail?branch=master)
+[![Code Climate](https://codeclimate.com/github/tyabe/goatmail/badges/gpa.svg)](https://codeclimate.com/github/tyabe/goatmail)
 [![Dependency Status](https://gemnasium.com/tyabe/goatmail.svg)](https://gemnasium.com/tyabe/goatmail)
 
 A Sinatra-based frontend to the [letter_opener](https://github.com/ryanb/letter_opener).  
