@@ -51,6 +51,10 @@ module Goatmail
       end
     end
 
+    def path
+      File.exist?(File.join(base_dir, "rich.html")) ? "#{id}.html" : id
+    end
+
     private
 
     def base_dir

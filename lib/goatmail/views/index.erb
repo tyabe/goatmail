@@ -39,7 +39,7 @@
       <li class="list-group-item message">
         <input id="message_<%= message.id %>" name="message_ids[]" type="checkbox" value="<%= message.id %>" />
         <label for="message_<%= message.id %>"></label>
-        <a href="<%= root_path + message.id %>" target='mail'>
+        <a href="<%= root_path + message.path %>" target='mail'>
           <dl>
             <dt><%=h message.meta[:subject] || message.id %></dt>
             <dd class="text-right"><small><%= message.sent_at %></small></dd>
