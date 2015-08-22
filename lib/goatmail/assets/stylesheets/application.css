@@ -104,6 +104,7 @@ iframe {
 li.message input[type="checkbox"] + label {
   position: absolute;
   top: 20px;
+  color: #424242;
 }
 li.message input[type="checkbox"]:checked + label:after {
   content: "X";
