@@ -32,6 +32,9 @@ module Goatmail
         Rack::Utils.escape_html(text)
       end
 
+      def title
+        [ settings.environment, Goatmail.name ].join("::")
+      end
     end
 
     get '/' do
