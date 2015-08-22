@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'tilt/erb'
 require 'erb'
 require 'goatmail/message'
 module Goatmail
