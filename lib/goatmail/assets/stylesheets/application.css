@@ -76,6 +76,14 @@ input[type="checkbox"] + label {
   bottom: 0;
   position: fixed;
 }
+@media only screen and (max-width: 979px) {
+  .left {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
 iframe {
   width: 100%;
   height: 100%;
