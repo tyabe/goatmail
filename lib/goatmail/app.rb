@@ -5,12 +5,6 @@ require 'goatmail/message'
 module Goatmail
   class App < Sinatra::Base
 
-    set :root,          File.expand_path(File.dirname(__FILE__))
-    set :public_folder, Proc.new { "#{root}/assets" }
-    set :views,         Proc.new { "#{root}/views" }
-
-    enable :method_override
-
     if defined?(Padrino) && Padrino.version < '0.13.0'
       def self.setup_application!; end
       def self.dependencies; []; end
@@ -21,14 +15,23 @@ module Goatmail
       end
     end
 
+    configure do
+      set :root,          File.expand_path(File.dirname(__FILE__))
+      set :public_folder, Proc.new { "#{root}/assets" }
+      set :views,         Proc.new { "#{root}/views" }
+
+      enable :method_override
+    end
+
     helpers do
+      def root_path
+        "#{env['SCRIPT_NAME']}/"
+      end
+
       def h(text)
         Rack::Utils.escape_html(text)
       end
-    end
 
-    def root_path
-      "#{env['SCRIPT_NAME']}/"
     end
 
     get '/' do
