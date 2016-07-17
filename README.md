@@ -39,6 +39,16 @@ Sample::Application.routes.draw do
 end
 ```
 
+If you use the Rails 5, Please use a combination with the Sinatra edge:
+```ruby
+# Gemfile
+group :development do
+  gem 'sinatra', github: 'sinatra/sinatra'
+  gem 'goatmail'
+end
+```
+
+
 ## Padrino Setup
 
 Then set the delivery method and mount app in `config/apps.rb`
@@ -57,6 +67,19 @@ if Padrino.env == :development
 end
 Padrino.mount('SampleProject::App', :app_file => Padrino.root('app/app.rb')).to('/')
 ```
+
+If an exception occurs that "Gem Load Error is: undefined method 'version' for Padrino:Module", please try this:
+
+```ruby
+# Gemfile
+gem 'goatmail', :group => :development, :require => false
+
+# config/boot.rb
+Padrino.before_load do
+  require 'goatmail'
+end
+```
+
 
 ## Sinatra Sample
 
