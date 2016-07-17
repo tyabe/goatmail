@@ -1,23 +1,23 @@
 language: ruby
-before_install: gem install bundler --pre
+cache: bundler
+before_install:
+  - gem install bundler
 install:
-  - gem update --system
   - bundle update
-script: xvfb-run rake
+script: xvfb-run bundle exec rake
 rvm:
   - 2.0.0
-  - 2.1
-  - 2.2
-  - rbx-2
-  - jruby
+  - 2.1.9
+  - 2.2.5
+  - 2.3.1
   - ruby-head
   - jruby-head
+  - rbx-2
 branches:
   only:
     - master
 matrix:
   allow_failures:
-    - rvm: rbx-2
     - rvm: ruby-head
     - rvm: jruby-head
-
+    - rvm: rbx-2
