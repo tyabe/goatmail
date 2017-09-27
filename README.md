@@ -106,8 +106,10 @@ map '/' do
   run Sample::App.new
 end
 
-map '/inbox' do
-  run Goatmail::App.new
+if ENV['RACK_ENV'] == 'development'
+  map '/inbox' do
+    run Goatmail::App.new
+  end
 end
 ```
 
