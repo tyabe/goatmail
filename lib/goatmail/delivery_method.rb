@@ -4,7 +4,9 @@ module Goatmail
   class DeliveryMethod < LetterOpener::DeliveryMethod
 
     def initialize(options = {})
-      super({location: Goatmail.location})
+      options[:location] ||= Goatmail.location
+      super
+      raise InvalidOption, "A location option is required when using the Goatmail delivery method" if Goatmail.location.nil?
     end
 
     def deliver!(mail)
