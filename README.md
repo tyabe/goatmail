@@ -39,15 +39,7 @@ Sample::Application.routes.draw do
 end
 ```
 
-If you use the Rails 5, Please use a combination with the Sinatra edge:
-```ruby
-# Gemfile
-group :development do
-  gem 'sinatra', github: 'sinatra/sinatra'
-  gem 'goatmail'
-end
-```
-
+If you use the Rails 5, Please use a combination with the Sinatra 2.0 later version.
 
 ## Padrino Setup
 
