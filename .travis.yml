@@ -6,13 +6,13 @@ install:
   - bundle update
 script: xvfb-run bundle exec rake
 rvm:
-  - 2.0.0
-  - 2.1.9
-  - 2.2.5
-  - 2.3.1
+  - 2.2.9
+  - 2.3.6
+  - 2.4.3
+  - 2.5.0
   - ruby-head
   - jruby-head
-  - rbx-2
+  - rbx-3
 branches:
   only:
     - master
@@ -20,4 +20,4 @@ matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
-    - rvm: rbx-2
+    - rvm: rbx-3
